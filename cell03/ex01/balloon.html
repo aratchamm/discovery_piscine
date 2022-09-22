@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .balloon {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+        }
+    </style>
+    <script>
+
+        function startBalloon() {
+            let bl = document.getElementById('balloon');
+            bl.style.backgroundColor = "red";
+        }
+
+        function clickF() {
+            let bl = document.getElementById('balloon');
+
+            if(bl.style.width < "420px" && bl.style.height < "420px") {
+                bl.style.width = (bl.offsetWidth + 10) + "px";
+                bl.style.height = (bl.offsetHeight + 10) + "px";
+            }
+            else {
+                bl.style.width = "200px"
+                bl.style.height = "200px"
+            }
+
+            if (bl.style.backgroundColor == 'red') {
+                bl.style.backgroundColor = 'green';
+            }
+            else if (bl.style.backgroundColor == 'green') {
+                bl.style.backgroundColor = 'blue';
+            }
+            else if (bl.style.backgroundColor == 'blue') {
+                bl.style.backgroundColor = 'red';
+            }
+            
+        }
+
+        function leaveF() {
+            let bl = document.getElementById('balloon');
+            
+            if(bl.style.width > "200px" && bl.style.height > "200px") {
+                bl.style.width = (bl.offsetWidth - 5) + "px";
+                bl.style.height = (bl.offsetHeight - 5) + "px";
+            }
+            else {
+                bl.style.width = "200px"
+                bl.style.height = "200px"
+            }
+            
+            if (bl.style.backgroundColor == 'red') {
+                bl.style.backgroundColor = 'blue';
+            }
+            else if (bl.style.backgroundColor == 'green') {
+                bl.style.backgroundColor = 'red';
+            }
+            else if (bl.style.backgroundColor == 'blue') {
+                bl.style.backgroundColor = 'green';
+            }
+            
+        }
+    </script>
+</head>
+<body onload="startBalloon()">
+    <div class="balloon" id="balloon" onclick="clickF()" onmouseleave="leaveF()"></div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<title>  
+Calculator
+</title>  
+  
+<script>  
+  
+let result;
+op = '+'
+
+function alert30(){
+    console.log('Please, use me...');
+    alert('Please, use me...');
+}
+
+setInterval(function(){
+    alert30();
+}, 30000)
+
+function submit() {
+    var x = parseFloat(document.getElementById("left").value);
+    var y = parseFloat(document.getElementById("right").value);
+    
+
+if (x>= 0 && y >= 0) {
+
+    if (y==0 && (op == '/' || op == '%') ){
+        console.log('It’s over 9000!');
+        alert('It’s over 9000!');
+    }
+
+    else if(op == '-') {
+        result = x-y;
+        console.log(result);
+        alert(result);
+    }
+    else if(op == '+') {
+        result = x+y;
+        console.log(result);
+        alert(result);
+    }
+    else if(op == '*') {
+        result = x*y;
+        console.log(result);
+        alert(result);
+    }
+    else if(op == '/') {
+        result = x/y;
+        console.log(result);
+        alert(result);
+    }
+    else if(op == '%') {
+        result = x%y;
+        console.log(result);
+        alert(result);
+    }
+
+    
+
+}
+
+else {
+    console.log('Error :(');
+    alert('Error :(');
+}
+    
+
+    
+}
+
+function opa(sel) {
+  op = sel.options[sel.selectedIndex].text;
+}
+
+</script>  
+  
+<style>    
+      
+      .sub {
+        margin-top: 2%;
+      }
+
+      body {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+		align-items: center;
+      }
+      
+      html, body {
+			height: 100vh;
+			margin: 0;
+			padding: 0;
+	    }
+
+
+</style>  
+</head>  
+<body>   
+    <input type="text" id="left" name="left">
+    <select id="select" onChange="opa(this);">
+        <option>+</option>
+        <option>-</option>
+        <option>*</option>
+        <option>/</option>
+        <option>%</option>
+    </select>
+    <input type="text" id="right" name="right">
+    <div class="sub">
+        <button onclick="submit()"> Try me! </button>
+    </div>
+ </body>  
+ </html>  
